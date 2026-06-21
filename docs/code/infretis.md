@@ -29,7 +29,7 @@ The initial paths can be prepared separately, for example from an `infinit`
 run. See the [Inf-init background](../background/inf_init.md) and the
 `inftools` documentation for more on that workflow.
 
-## What Is Happening During a Run
+## Simulation Output
 
 Each MC step follows the same broad pattern: `infretis` chooses a path and an
 ensemble, sends that job to a worker, runs a shooting or Wire Fencing move with
@@ -88,11 +88,13 @@ in `1.09s` using `166` MD subcycles.
 The grid between the two `===` lines is a snapshot of the live path ensemble
 after the completed move was processed. Rows are path numbers, written as
 `p00`, `p03`, and so on. Columns are ensemble numbers, here `0` through `7`.
-An `x` marks the path currently assigned to an ensemble; for example `p08` is
-now assigned to ensemble `004`. A `-` means that the path is not currently
-assigned or contributing in that column. When numbers appear instead of `x`,
-they are weights or counts used internally for weighted moves such as Wire
-Fencing. The rightmost columns give `max_op`, `min_op`, and `len` for paths
+
+==
+Explain grid 
+
+==
+
+The rightmost columns give `max_op`, `min_op`, and `len` for paths
 that are currently active in an ensemble. Rows without those values are not
 active in the printed live ensemble snapshot.
 
