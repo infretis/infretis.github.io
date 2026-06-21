@@ -1,0 +1,6 @@
+---
+icon: lucide/package
+---
+
+# Installation
+
