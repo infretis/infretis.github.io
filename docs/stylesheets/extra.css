@@ -1,0 +1,14 @@
+@media screen and (min-width: 76.25em) {
+  .md-sidebar,
+  .md-sidebar__scrollwrap {
+    height: auto;
+    max-height: none;
+  }
+
+  .md-sidebar__scrollwrap {
+    -ms-overflow-style: auto;
+    min-height: 100vh;
+    overflow: visible;
+    scrollbar-width: auto;
+  }
+}

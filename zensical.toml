@@ -58,10 +58,9 @@ nav = [
   { "Software" = [
     { "infretis" = "code/infretis.md" },
     { "inftools" = "code/inftools.md" },
-    { "infentory" = "code/inftools.md" },
+    { "infentory" = "code/infentory.md" },
   ]},
   { "Usage" = [
-    { "Installation" = "usage/installation.md" },
     { "Quick Start" = "usage/quickstart.md" },
     { "Input Generator" = "usage/input_generator.md" },
     { "Applications" = "usage/applications.md" },
@@ -78,7 +77,7 @@ nav = [
 #
 # Read more: https://zensical.org/docs/customization/#additional-css
 #
-#extra_css = ["stylesheets/extra.css"]
+extra_css = ["stylesheets/extra.css"]
 
 # With the `extra_javascript` option you can add your own JavaScript to your
 # project to customize the behavior according to your needs.
@@ -190,7 +189,7 @@ features = [
     # Turn on this feature to expand all collapsible sections in the
     # navigation sidebar by default.
     # https://zensical.org/docs/setup/navigation/#navigation-expansion
-    # "navigation.expand",
+    "navigation.expand",
 
     # This feature turns on navigation elements in the footer that allow the
     # user to navigate to a next or previous page.
