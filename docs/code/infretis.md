@@ -207,3 +207,49 @@ engine such as `gromacs.py` or `lammps.py`.
 
 For order parameters, read `classes/orderparameter.py` and the `orderp.py`
 files under `examples/`.
+
+## External ASE engine
+Running infretis with the external ASE engine (currently on the `external_ase`
+branch of infretis) differ from all other infretis engines. The main difference
+is that the workers performing the MD integration are launched as
+subprocesses, as illustrate below:
+
+```bash
+python -m infretis.classes.engines.propagator infretis.toml worker0 &
+python -m infretis.classes.engines.propagator infretis.toml worker1 &
+python -m infretis.classes.engines.propagator infretis.toml worker2 &
+infretisrun -i infretis.toml
+```
+
+This launches 3 infretis engine background processes using the `propagator.py`
+script. This script sets up the engine and the orderparameter, and then waits
+for further commands. Therafter, the main infretis process is launched, which
+sets up 3 infretis workers.
+
+Infretis tells each infretis worker to create a new path in some ensemble. The
+creation of a path requires MD, so the infretis worker instructs the engine
+background process to run MD from some initial condition. The infretis worker
+achieves this by writing an `INFINITY_START` text file in the worker directory,
+which the engine process is waiting for to appear. The engine process reads
+this file, which defines things like the file path of the initial
+configuration, the stopping conditions for the path, etc. The engine process
+then runs MD with this information, and when the the engine process is done
+with the MD propagation, writes the output to files, which the infretis worker
+then reads and processes. Thereafter, the infretis worker might instruct the
+engine process to generate another MD trajectory, until the path is completed.
+The infretis worker then reports back to the main infretis process, during
+which the engine process waits for the next instructions from an infretis
+worker. This is illustrated in the figure below:
+
+<figure> <img src="../media/infretis_external_ase.svg">
+<figcaption>
+The interactions between infretis and the background MD engines processes with the `external_ase` engine.
+</figcaption></figure>
+
+The `external_ase` engine allows one to easily integrate custom engines that
+supporting running MD via a python interface, such as OpenMM or LAMMPS.
+However, it was initially added to infretis to reduce the overhead of loading
+machine-learned potentials each time an MD propagation is performed, so it
+works out of the box only with ASE calculators. For other MD softwares, one has
+to implement a custom ASE calculator. This is illustrated for OpenMM on
+[infentory/openmm_examples](https://github.com/infretis/infentory/tree/main/openmm_examples/).
