@@ -23,10 +23,12 @@ and also the two advancements defining \(\infty\)RETIS
 
 * [Infinite Replica Exchange](background/infinite_replica_exchange.md)
 * [Asynchronous Replica Exchange](background/async_replica_exchange.md)
+* [Analysis](background/analysis.md)
+* [Predictive Power](background/predictive_power.md)
 
 and blablabla Inf-init
 
-* [Inf-init](background/async_replica_exchange.md)
+* [Inf-init](background/inf_init.md)
 
 ### \(\infty\)RETIS Software
 
