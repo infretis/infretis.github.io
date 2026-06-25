@@ -2,4 +2,4 @@
 icon: lucide/package
 ---
 
-# `infentory`
+# infentory

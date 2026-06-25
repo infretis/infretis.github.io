@@ -2,4 +2,4 @@
 icon: lucide/wrench
 ---
 
-# `inftools`
+# inftools
