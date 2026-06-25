@@ -53,6 +53,8 @@ nav = [
     { "TIS & RETIS" = "background/transition_interface_sampling.md" },
     { "Infinite RE" = "background/infinite_replica_exchange.md" },
     { "Asynchronous RE" = "background/async_replica_exchange.md" },
+    { "Analysis" = "background/analysis.md" },
+    { "Predictive Power" = "background/predictive_power.md" },
     { "Inf-init" = "background/inf_init.md" },
   ]},
   { "Software" = [
@@ -64,9 +66,7 @@ nav = [
     { "Quick Start" = "usage/quickstart.md" },
     { "Input Generator" = "usage/input_generator.md" },
     { "Applications" = "usage/applications.md" },
-    { "Configuration" = "usage/configuration.md" },
   ]},
-  { "API Reference" = "api/index.md" },
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize
