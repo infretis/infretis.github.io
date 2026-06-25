@@ -2,7 +2,7 @@
 icon: lucide/infinity
 ---
 
-# Running `infretis`
+# infretis
 
 This page is a short guide for people who run `infretis` and want to understand
 what the program is doing, where the important output appears, and where the
